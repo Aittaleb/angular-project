@@ -1,0 +1,71 @@
+md-card {
+  max-width: 100%;
+  margin: 1em auto;
+  padding: 1em ;
+}
+.example-form {
+  width: 500px;
+}
+
+.example-full-width {
+  width: 50%;
+}
+span{
+  max-width: 70%;
+}
+
+md-input-container{
+  width : 50% ;
+  margin: 10px ;
+}
+*{
+  margin: 10px;
+}
+.link-state-manufacture{
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 25px;
+  text-decoration: none ;
+  color: #7d807d;
+
+
+}
+
+
+.link-state-manufacture.finished{
+  color : #0996bb ;
+}
+
+
+.link-state-manufacture.working {
+  color: #eca732 ;
+}
+
+.icon-state-manufacture{
+  margin: 3px 3px;
+  color: #e6e0e0;
+  width : 35px ;
+  height: 35px ;
+  border-radius : 50%;
+  border : 2px solid #636262  ;
+  display: block;
+  background-color : #767776 ;
+  position : absolute  ;
+  left: 0px ;
+  top: 3px ;
+}
+
+.link-state-manufacture.finished .icon-state-manufacture{
+  color : #fff ;
+  background-color:#0996bb ;
+  border-color:  #0996bb ;
+}
+.link-state-manufacture.working .icon-state-manufacture{
+  color : #fff ;
+  background-color:#eca732 ;
+  border-color:  #eca732 ;
+}
+.barDiag
+{
+  padding: 10px ;
+}

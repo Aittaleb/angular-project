@@ -1,0 +1,44 @@
+<md-card>
+<md-card-title>Manufacture Line</md-card-title>
+<form class="Manufacture-Line-form" [formGroup]="rForm" (ngSubmit)="addManufactureLine(rForm.value)">
+
+  <div>
+    <md-input-container>
+    <input mdInput placeholder="Effective"  type="number" formControlName="effective" [value]="effective">
+    <md-icon mdSuffix>group</md-icon>
+    <md-error *ngIf="rForm.controls['effective'].hasError('required')">
+          effective of personel is<strong>required</strong>
+      </md-error>
+    </md-input-container>
+  </div>
+
+<div fxLayout="row">
+  <md-slide-toggle formControlName="inputTerminalState" [checked]="inputTerminalState" fxFlex>Input terminal State </md-slide-toggle>
+  <md-slide-toggle formControlName="outputTerminalState" [checked]="outputTerminalState" fxFlex >OutPut terminal State </md-slide-toggle>
+  <md-slide-toggle formControlName="displayState"  [checked]="displayState" fxFlex >Display State </md-slide-toggle>
+</div>
+
+<div fxLayout="row" >
+<md-select placeholder="State" fxFlex formControlName="state">
+  <md-option *ngFor="let state of states" [value]="state.value" >
+    {{ state.viewValue }}
+  </md-option>
+</md-select>
+
+  <md-input-container fxFlex >
+   <input mdInput placeholder="Process Order"  type="number" formControlName="processOrder" [value]="processOrder" >
+   <md-icon mdSuffix>edit</md-icon>
+   <md-error *ngIf="rForm.controls['processOrder'].hasError('required')">
+        process order is<strong>required</strong>
+    </md-error>
+  </md-input-container>
+</div>
+<md-card-actions>
+
+  <button md-raised-button color="primary" type="submit" md-button>
+    Validate
+  </button>
+</md-card-actions>
+</form>
+
+</md-card>

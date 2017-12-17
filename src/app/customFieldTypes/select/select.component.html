@@ -1,0 +1,51 @@
+<md-card>
+    <md-card-title>
+      Field Type Parameters
+    </md-card-title>
+  
+  
+    <div fxLayout="row">
+  
+      <div fxFlex>
+        Field Type
+      </div>
+  
+      <div fxFlex>
+        Select
+      </div>
+  
+    </div>
+  
+    <div fxLayout="row">
+  
+      <div fxFlex>
+        Values List
+      </div>
+  
+    </div>
+  
+    <div class="selects" fxLayout="row">
+      <md-input-container>
+        <input mdInput placeholder="Value:" [(ngModel)]="selectName">
+      </md-input-container>
+      <button class ="btn btn-primary addBtn" md-button (click)="addSelect(selectName); selectName='' ">
+            Add
+          </button>
+    </div>
+  
+  
+    <md-radio-group class="example-radio-group" [(ngModel)]="defaultSelect">
+      <md-radio-button class="example-radio-button" *ngFor="let select of selects" (click)="defaultSelect = select" [value]="select">
+        {{select}}
+        <button md-button class="delete" (click)="deleteSelect(select); ">x</button>
+      </md-radio-button>
+    </md-radio-group>
+
+    <button md-raised-button color="primary" (click)="setSelects()" md-button>
+      Submit Parameters
+    </button>
+  
+  
+  
+  
+  </md-card>

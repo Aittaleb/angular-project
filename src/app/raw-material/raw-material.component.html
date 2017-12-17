@@ -1,0 +1,48 @@
+<md-card>
+
+ <md-card-title> Raw Material </md-card-title>
+<md-card-content>
+  <form class="Raw Material" [formGroup]="rForm" (ngSubmit)="addRawMaterial(rForm.value)">
+
+    <div fxLayout="row">
+
+      <md-input-container fxFlex >
+        <input mdInput placeholder="Reference" [value]="reference" formControlName="reference"  >
+        <md-icon mdSuffix>import_contacts</md-icon>
+
+        <md-error *ngIf="rForm.controls['reference'].hasError('required')">
+        reference is <strong>required</strong>
+        </md-error>
+      </md-input-container  >
+
+        <md-input-container fxFlex >
+            <input mdInput placeholder="Name" [value]="name" formControlName="name"  >
+            <md-icon mdSuffix>edit</md-icon>
+            <md-error *ngIf="rForm.controls['name'].hasError('required')">
+        Name is <strong>required</strong>
+        </md-error>
+
+         <md-error *ngIf="rForm.controls['name'].hasError('pattern')">
+        Please enter a <strong>valid</strong> name
+        </md-error>
+
+        </md-input-container>
+
+    </div>
+
+    <div fxLayout="row">
+        <md-input-container fxFlex >
+          <input mdInput placeholder="Description" [value]="description" formControlName="description">
+          <md-icon mdSuffix>content_paste</md-icon>
+        </md-input-container>
+    </div>
+    <md-card-actions>
+
+      <button md-raised-button color="primary" type="submit" md-button>
+        Validate
+      </button>
+    </md-card-actions>
+
+  </form>
+</md-card-content>
+</md-card>

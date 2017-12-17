@@ -1,0 +1,50 @@
+<md-card>
+  <md-card-title>Process </md-card-title>
+  <form class="variant-form" [formGroup]="rForm" (ngSubmit)="addProcess(rForm.value)">
+
+    <div fxLayout="row">
+      <md-input-container fxFlex>
+       <input mdInput placeholder="Name"  [value]="name" formControlName="name">
+       <md-icon mdSuffix>edit</md-icon>
+       <md-error *ngIf="rForm.controls['name'].hasError('required')">
+          Name is <strong>required</strong>
+        </md-error>
+      </md-input-container>
+        <md-select placeholder="State" fxFlex formControlName="state">
+        <md-option *ngFor="let state of states" [value]="state.value">
+          {{ state.viewValue }}
+        </md-option>
+      </md-select>
+      <md-error *ngIf="rForm.controls['state'].hasError('required')">
+         State is <strong>required</strong>
+       </md-error>
+    </div>
+
+    <div fxLayout="row" >
+
+      <md-input-container fxFlex>
+        <textarea mdInput placeholder="Description" [value]="Description" formControlName="Description"></textarea>
+          <md-icon mdSuffix>edit</md-icon>
+      </md-input-container>
+      </div>
+  <div fxLayout="row" >
+      <md-input-container fxFlex >
+        <textarea mdInput placeholder="buildingData" [value]="buildingData" formControlName="buildingData"></textarea>
+        <md-icon mdSuffix>edit</md-icon>
+      </md-input-container>
+      <md-input-container fxFlex >
+        <textarea mdInput placeholder="buildingImage" [value]="buildingImage" formControlName="buildingImage"></textarea>
+        <md-icon mdSuffix>edit</md-icon>
+      </md-input-container>
+
+    </div>
+    <md-card-actions>
+
+      <button md-raised-button color="primary" type="submit" md-button>
+        Validate
+      </button>
+    </md-card-actions>
+
+  </form>
+
+</md-card>

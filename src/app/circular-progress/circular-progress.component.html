@@ -1,0 +1,98 @@
+<div>
+  <md-card>
+  <md-card-title >Overall Project Progress</md-card-title>
+    <md-card-content>
+
+      <div  fxLayout="row">
+
+        <div fxLayout="column">
+          <md-progress-spinner
+          [color]="color"
+          [mode]="mode"
+          [value]="value" fxFlex="75%" >
+                </md-progress-spinner>
+
+        <div fxFlex="25%" style="text-align: center;" >
+  <div fxLayout="row">
+            <div fxFlex>
+              <strong style="color : red ;"> {{ value }} % </strong>
+            </div>
+          </div>
+
+        </div>
+</div>
+  </div>
+    <div fxFlex>
+      <md-list>
+        <md-list-item *ngFor="let man of ManufacturingLines" >
+          <a class="link-state-manufacture"  [ngClass] ="{finished : man.state == 'finished', working : man.state =='working' , waiting : man.state == 'waiting'}" >
+            <span class="icon-state-manufacture">
+              <md-icon *ngIf="man.state == 'finished'" style="margin : 3px 3px ;"  >check</md-icon>
+              <md-icon *ngIf="man.state == 'waiting'" style="margin : 3px 3px ;"  >timer</md-icon>
+              <md-icon *ngIf="man.state == 'working'" style="margin : 3px 3px ;"  >update</md-icon>
+            </span>
+            {{man.name}}
+          </a>
+        </md-list-item>
+      </md-list>
+    </div>
+
+  </md-card-content>
+</md-card>
+
+<md-card class="barDiag" fxFlex="50%">
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [chartType]="barChartType"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <button (click)="randomize()">Update</button>
+  </div>
+</md-card>
+</div>
+<div>
+  <md-card  class="barDiag" fxFlex="30%">
+  <md-card-title >Employee Presence</md-card-title>
+    <md-card-content>
+        <div style="display: block">
+          <canvas baseChart *ngIf="isDataAvailable"
+                      [data]="doughnutChartData"
+                      [labels]="doughnutChartLabels"
+                      [chartType]="doughnutChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+        </div>
+  </md-card-content>
+</md-card>
+<span style="flex: 0.25 0.5 auto;"></span>
+<md-card  class="barDiag" fxFlex="30%">
+  <div style="display: block">
+       <canvas baseChart
+               [datasets]="radarChartData"
+               [labels]="radarChartLabels"
+               [chartType]="radarChartType"
+               (chartHover)="chartHovered($event)"
+               (chartClick)="chartClicked($event)"></canvas>
+     </div>
+</md-card>
+<span style="flex: 0.25 0.5 auto;"></span>
+<md-card class="barDiag" fxFlex="30%">
+
+
+      <div style="display: block">
+        <canvas baseChart
+               [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+        </canvas>
+     </div>
+   </md-card>
+</div>

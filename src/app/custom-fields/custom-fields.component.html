@@ -1,0 +1,94 @@
+<div fxLayout="row">
+
+  <md-card fxFlex>
+    <md-card-title>
+      Custom Fields
+    </md-card-title>
+
+
+    <form class="custom-field-form" [formGroup]="rForm" (ngSubmit)="addCustomField(rForm.value)">
+      <div fxLayout="row">
+        <md-select [disabled]="buDisabled" [(ngModel)]="selectedType" placeholder="Field Type" fxFlex formControlName="fieldType">
+          <md-option *ngFor="let type of types" [value]="type">
+            {{ type }}
+          </md-option>
+        </md-select>
+      </div>
+      <div fxLayout="row">
+
+        <md-input-container fxFlex>
+
+          <input mdInput placeholder="Field Name" formControlName="fieldName" [value]="fieldName">
+          <md-error *ngIf="rForm.controls['fieldName'].hasError('required')">
+            fieldName is <strong>required</strong>
+          </md-error>
+          <md-error *ngIf="rForm.controls['fieldName'].hasError('pattern')">
+            please enter a valid <strong>fieldName</strong>
+          </md-error>
+          <md-icon mdSuffix>edit</md-icon>
+        </md-input-container>
+
+
+
+        <md-input-container fxFlex>
+          <input mdInput placeholder="Field Code" formControlName="fieldCode" [value]="fieldCode">
+          <md-icon mdSuffix>edit</md-icon>
+          <md-error *ngIf="rForm.controls['fieldCode'].hasError('required')">
+            fieldCode is <strong>required</strong>
+          </md-error>
+          <md-error *ngIf="rForm.controls['fieldCode'].hasError('pattern')">
+            please enter a valid <strong>Field Code</strong>
+          </md-error>
+        </md-input-container>
+
+      </div>
+
+      <div fxLayout="row">
+
+        <md-input-container class="example-full-width" fxFlex>
+
+          <input mdInput placeholder="Description" formControlName="description" [value]="description">
+          <md-icon mdSuffix>description</md-icon>
+          <md-error *ngIf="rForm.controls['description'].hasError('pattern')">
+            Please enter a valid description address
+          </md-error>
+          <md-error *ngIf="rForm.controls['description'].hasError('required')">
+            description is <strong>required</strong>
+          </md-error>
+        </md-input-container>
+
+      </div>
+
+      <div fxLayout="row">
+        <md-slide-toggle  formControlName="required" [checked]="required" fxFlex>required </md-slide-toggle>
+      </div>
+
+      <md-card-actions>
+
+        <button md-raised-button color="primary" type="submit" md-button>
+            Validate
+          </button>
+      </md-card-actions>
+    </form>
+
+
+  </md-card>
+
+  <div fxFlex>
+
+    <app-radio-button *ngIf="selectedType ==='radioButton'"></app-radio-button>
+
+    <app-select *ngIf="selectedType ==='select' "></app-select>
+
+    <app-multiple-choice *ngIf="selectedType ==='multipleChoice' "></app-multiple-choice>
+
+    <app-simple-text *ngIf="selectedType ==='simpleText' "></app-simple-text>
+    <app-rich-text *ngIf="selectedType === 'richText' "></app-rich-text>
+    <app-numeric-value *ngIf="selectedType === 'numericValue' "></app-numeric-value>
+    <app-amount-with-currency *ngIf="selectedType === 'amount with currency' "> </app-amount-with-currency>
+    <app-numeric-field-with-unit *ngIf="selectedType === 'numeric field with unit' "></app-numeric-field-with-unit>
+    <app-date *ngIf="selectedType === 'date' "></app-date>
+    <app-yes-no *ngIf="selectedType === 'Yes/No' "></app-yes-no>
+  </div>
+
+</div>

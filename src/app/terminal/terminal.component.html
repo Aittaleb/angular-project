@@ -1,0 +1,55 @@
+<md-card>
+<md-card-title>
+  Terminal
+</md-card-title>
+<form class="terminal-form" [formGroup]="rForm" (ngSubmit)="addTerminal(rForm.value)" >
+
+<div fxLayout="row">
+  <md-input-container fxFlex style="margin-right : 5px ;">
+   <input mdInput placeholder="Mac Adress" [value]="macAddress" formControlName="macAddress">
+   <md-icon mdSuffix>router</md-icon>
+   <md-error *ngIf="rForm.controls['macAddress'].hasError('required')">
+        Mac address is <strong>required</strong>
+        </md-error>
+        <md-error *ngIf="rForm.controls['macAddress'].hasError('pattern')">
+        please enter a valid <strong>mac Address</strong>
+        </md-error>
+  </md-input-container>
+
+  <md-input-container fxFlex style="margin-left : 5px ;">
+   <input mdInput placeholder="Ip Adress" [value]="ipAddress" formControlName="ipAddress">
+   <md-icon mdSuffix>router</md-icon>
+   <md-error *ngIf="rForm.controls['ipAddress'].hasError('required')">
+        IP address is <strong>required</strong>
+        </md-error>
+        <md-error *ngIf="rForm.controls['ipAddress'].hasError('pattern')">
+        please enter a valid <strong>Ip Address</strong>
+        </md-error>
+  </md-input-container>
+</div>
+
+
+<div fxLayout="row">
+<md-select placeholder="State" fxFlex formControlName="state" >
+  <md-option *ngFor="let state of states" [value]="state.value">
+    {{ state.viewValue }}
+  </md-option>
+</md-select>
+
+<md-select placeholder="Authorization" fxFlex formControlName="authorization" >
+  <md-option *ngFor="let authorization of authorizations" [value]="authorization.value">
+    {{ authorization.viewValue }}
+  </md-option>
+</md-select>
+</div>
+
+<md-card-actions>
+
+  <button md-raised-button color="primary" type="submit" md-button>
+    Validate
+  </button>
+</md-card-actions>
+
+</form>
+
+</md-card>

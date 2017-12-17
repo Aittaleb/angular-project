@@ -1,0 +1,48 @@
+<md-card>
+  <md-card-title>Field Type Parameters </md-card-title>
+  <md-card-content>
+    <div fxLayout="row">
+
+      <div fxFlex>
+        Field Type
+      </div>
+
+      <div fxFlex>
+        Simple Text
+      </div>
+
+    </div>
+
+    <div fxLayout="row">
+
+      <div fxFlex>
+        Values List
+      </div>
+
+    </div>
+<div fxLayout="column">
+    <md-input-container  fxFlex>
+      <input [(ngModel)]="defaultValue" mdInput placeholder="Default Value" name="defaultValue" [value]=""  (blur)="set($event)">
+      <md-icon mdSuffix>edit</md-icon>
+    </md-input-container>
+
+    <md-input-container fxFlex>
+      <input [(ngModel)]="minCharacters" type="number" mdInput  name="minCharacters" placeholder="Min Characters"  (blur)="set($event)">
+      <md-icon mdSuffix>edit</md-icon>
+    </md-input-container>
+
+    <md-input-container fxFlex>
+      <input [(ngModel)]="maxCharacters" type="number" mdInput name="maxCharacters" placeholder="Max Characters"  (blur)="set($event)">
+      <md-icon mdSuffix>edit</md-icon>
+    </md-input-container> 
+
+</div>
+
+<button md-raised-button color="primary" [disabled]="butdisabled" (click)="action()" md-button >
+  Submit Parameters
+</button>
+
+
+
+  </md-card-content>
+</md-card>

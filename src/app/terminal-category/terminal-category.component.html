@@ -1,0 +1,44 @@
+<md-card>
+<md-card-title>Terminal Category </md-card-title>
+<form class="product-form" [formGroup]="rForm" (ngSubmit)="addTerminalCategory(rForm.value)">
+
+  <div fxLayout="row">
+
+  <md-input-container fxFlex>
+   <input mdInput placeholder="Name" [value]="name" formControlName="name">
+   <md-icon mdSuffix>edit</md-icon>
+   <md-error *ngIf="rForm.controls['name'].hasError('required')">
+      Name is <strong>required</strong>
+    </md-error>
+  </md-input-container>
+
+
+</div>
+<div fxLayout="row" >
+  <md-input-container class="example-full-width">
+    <textarea mdInput placeholder="Description" [value]="Description" formControlName="Description"></textarea>
+      <md-icon mdSuffix>edit</md-icon>
+  </md-input-container>
+
+</div>
+<div fxLayout="row" >
+  <md-select placeholder="Type" fxFlex formControlName="type">
+  <md-option *ngFor="let type of types" [value]="type.value">
+    {{ type.viewValue }}
+  </md-option>
+</md-select>
+<md-error *ngIf="rForm.controls['type'].hasError('required')">
+   Type is <strong>required</strong>
+ </md-error>
+
+</div>
+<md-card-actions>
+
+  <button md-raised-button color="primary" type="submit" md-button>
+    Validate
+  </button>
+</md-card-actions>
+
+</form>
+
+</md-card>

@@ -1,0 +1,64 @@
+<md-card>
+  <md-card-title>Field Type Parameters </md-card-title>
+  <md-card-content>
+    <div fxLayout="row">
+
+      <div fxFlex>
+        Field Type
+      </div>
+
+      <div fxFlex>
+        Amount with currency
+      </div>
+
+    </div>
+
+    <div fxLayout="row">
+
+      <div fxFlex>
+        Values List
+      </div>
+
+    </div>
+
+
+    <div fxLayout="column">
+      <md-input-container fxFlex>
+        <input type="number" name="defaultValue" [(ngModel)]="defaultValue" mdInput placeholder="Default Value" (blur)="set($event)">
+        <md-icon mdSuffix>edit</md-icon>
+      </md-input-container>
+
+      <md-input-container fxFlex>
+        <input type="number" name="minValue" [(ngModel)]="minValue" mdInput placeholder="Min Value" (blur)="set($event)">
+        <md-icon mdSuffix>edit</md-icon>
+      </md-input-container>
+
+      <md-input-container fxFlex>
+        <input type="number" name="maxValue" [(ngModel)]="maxValue" mdInput placeholder="Max Value" (blur)="set($event)">
+        <md-icon mdSuffix>edit</md-icon>
+      </md-input-container>
+
+
+   
+
+
+
+      <div fxLayout="row">
+        <md-select placeholder="Currency" [(ngModel)]="selectedCurrency" (change)="setSelect($event)" fxFlex>
+          <md-option *ngFor="let curr of currencies" [value]="curr">
+            {{ curr }}
+          </md-option>
+        </md-select>
+      </div>
+
+
+   
+
+    </div>
+
+    <button md-raised-button color="primary" [disabled]="butdisabled" (click)="action()" md-button >
+      Submit Parameters
+    </button>
+
+  </md-card-content>
+</md-card>

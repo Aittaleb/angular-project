@@ -1,0 +1,52 @@
+<md-card>
+  <md-card-title> Variant </md-card-title>
+  <form class="variant-form" [formGroup]="rForm" (ngSubmit)="addVariant(rForm.value)">
+
+    <div fxLayout="row">
+      <md-input-container fxFlex>
+        <input mdInput placeholder="Choose Color"  [value]="colorValue" disabled  formControlName="colorValue">
+      </md-input-container>
+      <div fxFlexx>
+        <span class="example-spacer"></span>
+        <input type="color" #f (change)="setColor(f.value)">
+      </div>
+    </div>
+    <div fxLayout="row">
+      <md-input-container fxFlex>
+        <input mdInput placeholder="Size" type="number"  [value]="size"  formControlName="size">
+        <md-icon mdSuffix>edit</md-icon>
+        <md-error *ngIf="rForm.controls['size'].hasError('required')">
+          Size is <strong>required</strong>
+        </md-error>
+      </md-input-container>
+    </div>
+
+    <div fxLayout="row">
+
+      <md-input-container fxFlex>
+        <input mdInput placeholder="letterSize"   [value]="letterSize" formControlName="letterSize">
+        <md-icon mdSuffix>edit</md-icon>
+        <md-error *ngIf="rForm.controls['letterSize'].hasError('required')">
+          Letter Size is <strong>required</strong>
+        </md-error>
+      </md-input-container>
+
+      <md-input-container fxFlex>
+        <input mdInput placeholder="Quantity" type="number"   [value]="quantity" formControlName="quantity">
+        <md-icon mdSuffix>edit</md-icon>
+        <md-error *ngIf="rForm.controls['quantity'].hasError('required')">
+          Quantity is <strong>required</strong>
+        </md-error>
+      </md-input-container>
+
+    </div>
+    <md-card-actions>
+
+      <button md-raised-button color="primary" type="submit" md-button>
+        Validate
+      </button>
+    </md-card-actions>
+
+  </form>
+
+</md-card>

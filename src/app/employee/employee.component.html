@@ -1,0 +1,116 @@
+<md-card>
+  <md-card-title>Employee </md-card-title>
+  <form class="employee-form" [formGroup]="rForm" (ngSubmit)="addEmployee(rForm.value)">
+
+    <div fxLayout="row">
+
+      <md-input-container fxFlex  >
+
+        <input mdInput placeholder="Identifier" formControlName="identifier" [value]="identifier">
+        <md-error *ngIf="rForm.controls['identifier'].hasError('required')">
+          identifier is <strong>required</strong>
+        </md-error>
+        <md-error *ngIf="rForm.controls['identifier'].hasError('pattern')">
+          please enter a valid <strong>identifier</strong>
+        </md-error>
+        <md-icon mdSuffix>person</md-icon>
+      </md-input-container>
+
+      <md-input-container fxFlex  >
+        <input mdInput placeholder="Name" formControlName="fullname" [value]="fullname">
+        <md-icon mdSuffix>person</md-icon>
+        <md-error *ngIf="rForm.controls['fullname'].hasError('required')">
+          Name is <strong>required</strong>
+        </md-error>
+        <md-error *ngIf="rForm.controls['fullname'].hasError('pattern')">
+          please enter a valid <strong>Name</strong>
+        </md-error>
+      </md-input-container>
+
+    </div>
+
+    <div fxLayout="row">
+      <md-input-container class="example-full-width" fxFlex>
+        <input mdInput placeholder="Email" formControlName="email" [value]="email">
+        <md-icon mdSuffix>email</md-icon>
+        <md-error *ngIf="rForm.controls['email'].hasError('pattern')">
+          Please enter a valid email address
+        </md-error>
+        <md-error *ngIf="rForm.controls['email'].hasError('required')">
+          Email is <strong>required</strong>
+        </md-error>
+      </md-input-container>
+
+
+
+
+      <md-input-container class="example-full-width" color ="accent" fxFlex >
+        <span mdPrefix>+212 &nbsp;</span>
+        <input type="tel" mdInput placeholder="Telephone" formControlName="phone" [value]="phone">
+        <md-icon mdSuffix>phone</md-icon>
+        <md-error *ngIf="rForm.controls['phone'].hasError('required')">
+          Phone is <strong> required </strong>
+        </md-error>
+        <md-error *ngIf="rForm.controls['phone'].hasError('pattern')">
+          please enter a <strong>valid</strong> phone Number
+        </md-error>
+      </md-input-container>
+
+    </div>
+
+    <div fxLayout="row">
+      <md-input-container fxFlex >
+        <input mdInput [mdDatepicker]="picker1" placeholder="Hiring date" formControlName="hiringDate" [value]="hiringDate">
+        <button mdSuffix [mdDatepickerToggle]="picker1"></button>
+        <md-error *ngIf="rForm.controls['hiringDate'].hasError('required')">
+          Hiring Date is<strong>required</strong>
+        </md-error>
+      </md-input-container>
+      <md-datepicker #picker1></md-datepicker>
+
+      <md-input-container fxFlex>
+        <input mdInput [mdDatepicker]="picker2" placeholder="Termination Date" formControlName="terminationDate" [value]="terminationDate">
+        <button mdSuffix [mdDatepickerToggle]="picker2"></button>
+        <md-error *ngIf="rForm.controls['terminationDate'].hasError('required')">
+          Termination Date is<strong>required</strong>
+        </md-error>
+      </md-input-container>
+      <md-datepicker #picker2></md-datepicker>
+    </div>
+
+
+
+    <div fxLayout="row">
+      <md-select placeholder="Job" fxFlex formControlName="job" >
+        <md-option *ngFor="let job of jobs" [value]="job.value">
+          {{ job.viewValue }}
+        </md-option>
+      </md-select>
+
+
+      <md-select placeholder="State" fxFlex formControlName="state" >
+        <md-option *ngFor="let state of states" [value]="state.value">
+          {{ state.viewValue }}
+        </md-option>
+      </md-select>
+    </div>
+
+
+    <div fxLayout="row">
+      <md-input-container fxFlex >
+        <input mdInput placeholder="Adress" value="" formControlName="address" [value]="address">
+        <md-icon mdSuffix>home</md-icon>
+        <md-error *ngIf="rForm.controls['address'].hasError('required')">
+          Address<strong>required</strong>
+        </md-error>
+      </md-input-container>
+    </div>
+    <md-card-actions>
+
+      <button md-raised-button color="primary" type="submit" md-button>
+        Validate
+      </button>
+    </md-card-actions>
+  </form>
+
+</md-card>

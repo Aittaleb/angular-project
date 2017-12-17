@@ -1,0 +1,60 @@
+<md-card class="card-list-of-Terminal Categories mat-elevation-z8">
+    <md-card-title> List of Terminal Categories </md-card-title>
+
+    <div class="example-header" >
+            <md-input-container floatPlaceholder="never">
+            <input mdInput #filter placeholder="Filter Terminal Categories">
+            </md-input-container>
+  </div>
+
+    <md-table #table [dataSource]="dataSource" mdSort>
+      <ng-container cdkColumnDef="userId">
+    <md-header-cell *cdkHeaderCellDef> ID </md-header-cell>
+    <md-cell *cdkCellDef="let row"> {{row.id}} </md-cell>
+  </ng-container>
+
+
+        <ng-container cdkColumnDef="name">
+            <md-header-cell *cdkHeaderCellDef md-sort-header > name </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.name}}</md-cell>
+        </ng-container>
+
+          <ng-container cdkColumnDef="type">
+            <md-header-cell *cdkHeaderCellDef md-sort-header >type</md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.type}}</md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="description">
+            <md-header-cell *cdkHeaderCellDef md-sort-header > description </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.description}}</md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="Action">
+            <md-header-cell *cdkHeaderCellDef md-sort-header > Action </md-header-cell>
+            <md-cell  *cdkCellDef="let row">
+               <div style="display:auto">
+               <button md-mini-fab (click)="delete(row)"><md-icon>delete</md-icon></button>
+               <a md-mini-fab  [routerLink]="['/terminal-category', row._id]"><md-icon>create</md-icon></a>
+             </div>
+            </md-cell>
+        </ng-container>
+
+        <md-header-row *cdkHeaderRowDef="displayedColumns"  ></md-header-row>
+
+        <md-row *cdkRowDef="let row; columns: displayedColumns;">
+        </md-row>
+    </md-table>
+
+            <div class="example-no-results"
+            [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+            No Terminal Categories found matching filter.
+        </div>
+
+        <md-paginator #paginator
+                        [length]="dataSource.filteredData.length"
+                        [pageIndex]="0"
+                        [pageSize]="25"
+                        [pageSizeOptions]="[5, 10, 25, 100]">
+        </md-paginator>
+
+</md-card>

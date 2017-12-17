@@ -1,0 +1,52 @@
+<md-card>
+
+ <md-card-title> Manufacture Line Type </md-card-title>
+<md-card-content>
+  <form class="manufacture-line-type-form" [formGroup]="rForm" (ngSubmit)="addManufactureLineType(rForm.value)">
+
+    <div fxLayout="row">
+
+      <md-input-container fxFlex >
+            <input mdInput placeholder="Name" [value]="name" formControlName="name"  >
+            <md-icon mdSuffix>person</md-icon>
+            <md-error *ngIf="rForm.controls['name'].hasError('required')">
+                  Manufacture line type name is <strong>required</strong>
+                  </md-error>
+        </md-input-container  >
+
+      <md-input-container fxFlex >
+        <input mdInput placeholder="Description" [value]="description" formControlName="description">
+        <md-icon mdSuffix>content_paste</md-icon>
+      </md-input-container>
+
+    </div>
+
+    <div fxLayout="row">
+
+          <md-input-container fxFlex >
+            <input mdInput placeholder="min Effective" [value]="minEffective" type="number" formControlName="minEffective" >
+            <md-icon mdSuffix>group</md-icon>
+            <md-error *ngIf="rForm.controls['minEffective'].hasError('required')">
+                  min effective is <strong>required</strong>
+                  </md-error>
+          </md-input-container>
+
+        <md-input-container fxFlex >
+            <input mdInput placeholder="max Effective" [value]="maxEffective" type="number" formControlName="maxEffective" >
+            <md-icon mdSuffix>group</md-icon>
+            <md-error *ngIf="rForm.controls['maxEffective'].hasError('required')">
+                  max effective is <strong>required</strong>
+                  </md-error>
+        </md-input-container>
+
+    </div>
+
+    <md-card-actions>
+      <button md-raised-button color="primary" type="submit" md-button>
+        Validate
+      </button>
+    </md-card-actions>
+
+  </form>
+</md-card-content>
+</md-card>

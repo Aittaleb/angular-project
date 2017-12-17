@@ -1,0 +1,56 @@
+<md-card>
+<md-card-title> Product </md-card-title>
+<form class="product-form" [formGroup]="rForm" (ngSubmit)="addProduct(rForm.value)">
+
+  <div fxLayout="row">
+
+  <md-input-container fxFlex>
+   <input mdInput placeholder="Name" [value]="name" formControlName="name">
+   <md-icon mdSuffix>person</md-icon>
+     <md-error *ngIf="rForm.controls['name'].hasError('required')">
+        Name is <strong>required</strong>
+        </md-error>
+        <md-error *ngIf="rForm.controls['name'].hasError('pattern')">
+        please enter a valid <strong>Name</strong>
+        </md-error>
+  </md-input-container>
+
+  <md-input-container fxFlex >
+   <input mdInput placeholder="Style Reference" [value]="styleReference" formControlName="styleReference">
+   <md-icon mdSuffix>import_contacts</md-icon>
+   <md-error *ngIf="rForm.controls['styleReference'].hasError('required')">
+       Style reference is <strong>required</strong>
+        </md-error>
+  </md-input-container>
+
+</div>
+
+<div fxLayout="row" >
+  <md-input-container fxFlex >
+   <input mdInput placeholder="Quantity" type="number" [value]="quantity" formControlName="quantity" >
+   <md-icon mdSuffix>edit</md-icon>
+   <md-error *ngIf="rForm.controls['quantity'].hasError('required')">
+       Quantity is <strong>required</strong>
+        </md-error>
+  </md-input-container>
+
+  <md-input-container fxFlex >
+   <input mdInput placeholder="Description" [value]="description" formControlName="description">
+   <md-icon mdSuffix>content_paste</md-icon>
+  </md-input-container>
+
+</div>
+<md-card-actions>
+
+  <button md-raised-button color="primary" type="submit" md-button>
+    Validate
+  </button>
+</md-card-actions>
+
+</form>
+
+</md-card>
+
+
+
+

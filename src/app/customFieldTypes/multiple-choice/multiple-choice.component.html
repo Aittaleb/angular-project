@@ -1,0 +1,62 @@
+<md-card >
+  <md-card-title>
+    Field Type Parameters
+  </md-card-title>
+
+
+  <div fxLayout="row">
+
+    <div fxFlex>
+      Field Type
+    </div>
+
+    <div fxFlex>
+      Multiple Choice
+    </div>
+
+  </div>
+
+  <md-input-container>
+    <input mdInput name="minChecked" placeholder="min Checked" type="number" #minchecked (blur)="set($event)" />
+  </md-input-container>
+
+  <md-input-container>
+    <input mdInput name="maxcheched" placeholder="max Checked" type="number" #maxChecked (blur)="set($event)" />
+  </md-input-container>
+
+
+  <div fxLayout="row">
+
+    <div fxFlex>
+      Values List
+    </div>
+
+  </div>
+
+  <div class="choices" fxLayout="row">
+    <md-input-container>
+      <input mdInput name="" placeholder="Value:" [(ngModel)]="choiceName">
+    </md-input-container>
+    <button class="btn btn-primary addBtn" md-button (click)="addChoice(choiceName); choiceName='' ">
+            Add
+          </button>
+  </div>
+
+
+  <div fxLayout="column">
+    <md-checkbox fxFlex class="example-radio-button" (click)="defaultChoices.push(choice);" *ngFor="let choice of choices" [value]="choice">
+      {{choice}}
+      <button md-button class="delete" (click)="deleteChoice(choice); ">x</button>
+    </md-checkbox>
+  </div>
+
+ 
+    <button md-raised-button color="primary" [disabled]="bitdisabled" (click)="action()" md-button>
+      Submit Parameters
+    </button>
+
+
+
+
+
+</md-card>

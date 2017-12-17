@@ -1,0 +1,42 @@
+<md-card>
+  <md-card-title>Invoice </md-card-title>
+  <form class="invoice-form" [formGroup]="rForm" (ngSubmit)="addInvoice(rForm.value)">
+
+    <div fxLayout="row" >
+
+      <md-input-container fxFlex>
+        <input mdInput placeholder="Total Price" [value]="totalPrice" type="number" formControlName="totalPrice">
+        <md-icon mdSuffix>attach_money</md-icon>
+        <md-error *ngIf="rForm.controls['totalPrice'].hasError('required')">
+          total price is <strong>required</strong>
+        </md-error>
+      </md-input-container>
+
+      <md-input-container fxFlex >
+        <input mdInput placeholder="Net Price" [value]="netPrice"  type="number" formControlName="netPrice" >
+        <md-icon mdSuffix>attach_money</md-icon>
+        <md-error *ngIf="rForm.controls['netPrice'].hasError('required')">
+          net price is <strong>required</strong>
+        </md-error>
+      </md-input-container>
+
+    </div>
+
+
+    <md-input-container  >
+      <input mdInput [mdDatepicker]="picker1" placeholder="Invoice date" [value]="invoiceDate" formControlName="invoiceDate" >
+      <button mdSuffix [mdDatepickerToggle]="picker1"></button>
+      <md-error *ngIf="rForm.controls['invoiceDate'].hasError('required')">
+        Invoice date is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+    <md-datepicker #picker1></md-datepicker>
+    <md-card-actions>
+
+      <button md-raised-button color="primary" type="submit" md-button>
+        Validate
+      </button>
+    </md-card-actions>
+  </form>
+
+</md-card>

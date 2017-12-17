@@ -1,0 +1,34 @@
+<md-card>
+<md-card-title>Stock</md-card-title>
+<form class="Stock-form" [formGroup]="rForm" (ngSubmit)="addStock(rForm.value)">
+
+<div>
+  <md-input-container>
+   <input mdInput placeholder="Quantity" [value]="quantity" type="number" formControlName="quantity">
+   <md-icon mdSuffix>edit</md-icon>
+   <md-error *ngIf="rForm.controls['quantity'].hasError('required')">
+      Quantity is <strong>required</strong>
+    </md-error>
+  </md-input-container>
+
+
+  <md-input-container fxFlex >
+    <input mdInput [mdDatepicker]="picker4" placeholder="import Date" formControlName="importDate" [value]="importDate">
+    <button mdSuffix [mdDatepickerToggle]="picker4"></button>
+    <md-error *ngIf="rForm.controls['importDate'].hasError('required')">
+       Date is <strong>required</strong>
+     </md-error>
+  </md-input-container>
+  <md-datepicker #picker4></md-datepicker>
+
+</div>
+<md-card-actions>
+
+  <button md-raised-button color="primary" type="submit" md-button>
+    Validate
+  </button>
+</md-card-actions>
+
+</form>
+
+</md-card>

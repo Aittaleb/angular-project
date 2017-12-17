@@ -1,0 +1,5 @@
+.example-sidenav-content {
+  display: flex;
+  min-height: 600px;
+  width: 100%;
+}

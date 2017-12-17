@@ -1,0 +1,37 @@
+.example-container {
+  height: 100%;
+  min-height: 1200px;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+md-sidenav
+{
+  height: 100%;
+  width: 250px;
+}
+md-card-actions{
+ text-align : center ;
+}
+md-toolbar-row{
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+md-card {
+  max-width: 100%;
+  text-align: center;
+}
+.example-header-image {
+  background-image: url('../../assets/img/index.jpg');
+  background-size: cover;
+}
+.md-icon-button
+{
+  width: 250px;
+  height: 37px;
+}

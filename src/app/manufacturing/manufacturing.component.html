@@ -1,0 +1,69 @@
+<md-card>
+  <md-card-title>Manufacturing </md-card-title>
+  <form class="variant-form" [formGroup]="rForm" (ngSubmit)="addManufacturing(rForm.value)">
+
+    <div fxLayout="row">
+
+      <md-input-container fxFlex >
+        <input mdInput placeholder="Input" name="Input" type="number" [value]="input" formControlName="input">
+        <md-icon mdSuffix>edit</md-icon>
+        <md-error *ngIf="rForm.controls['input'].hasError('required')">
+           Input is <strong>required</strong>
+         </md-error>
+      </md-input-container>
+
+      <md-input-container fxFlex >
+        <input mdInput placeholder="Output" name="Output" type="number" [value]="output" formControlName="output">
+        <md-icon mdSuffix>edit</md-icon>
+        <md-error *ngIf="rForm.controls['output'].hasError('required')">
+           Output is <strong>required</strong>
+         </md-error>
+      </md-input-container>
+    </div>
+
+    <div fxLayout="row" >
+
+      <md-input-container>
+        <input mdInput [mdDatepicker]="picker1" placeholder="savedAt" name="savedAt" [value]="savedAt"  formControlName="savedAt">
+        <button mdSuffix [mdDatepickerToggle]="picker1"></button>
+        <md-error *ngIf="rForm.controls['savedAt'].hasError('required')">
+           Saved At Date is <strong>required</strong>
+         </md-error>
+      </md-input-container>
+      <md-datepicker #picker1></md-datepicker>
+      <md-input-container>
+        <input mdInput [mdDatepicker]="picker2" placeholder="releasedAt" name="releasedAt" [value]="releasedAt" formControlName="releasedAt">
+        <button mdSuffix [mdDatepickerToggle]="picker2"></button>
+        <md-error *ngIf="rForm.controls['releasedAt'].hasError('required')">
+           Released At Date is <strong>required</strong>
+         </md-error>
+      </md-input-container>
+      <md-datepicker #picker2></md-datepicker>
+
+    </div>
+    <div fxLayout="row" >
+
+      <md-input-container fxFlex >
+        <input mdInput placeholder="State" formControlName="state" [value]="state">
+        <md-icon mdSuffix>edit</md-icon>
+        <md-error *ngIf="rForm.controls['state'].hasError('required')">
+            State is <strong>required</strong>
+         </md-error>
+      </md-input-container>
+
+      <md-input-container class="example-full-width">
+        <textarea mdInput placeholder="Note"  formControlName="note"  [value]="note"></textarea>
+          <md-icon mdSuffix>edit</md-icon>
+      </md-input-container>
+
+    </div>
+
+    <md-card-actions>
+      <button md-raised-button color="primary" type="submit" md-button>
+        Validate
+      </button>
+    </md-card-actions>
+
+  </form>
+
+</md-card>

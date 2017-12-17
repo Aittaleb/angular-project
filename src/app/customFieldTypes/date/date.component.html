@@ -1,0 +1,44 @@
+<md-card>
+  <md-card-title>
+    Field Type Parameters
+  </md-card-title>
+
+
+  <div fxLayout="row">
+
+    <div fxFlex>
+      Field Type
+    </div>
+
+    <div fxFlex>
+      Date
+    </div>
+
+  </div>
+
+  <div fxLayout="column">
+
+
+    <md-input-container fxFlex>
+      <input [(ngModel)]="minD" mdInput [mdDatepicker]="picker1" placeholder="Min Date"  [value]="minD">
+      <button mdSuffix [mdDatepickerToggle]="picker1"></button>
+    </md-input-container>
+    <md-datepicker #picker1  (selectedChanged)="setMinDate()"></md-datepicker>
+
+
+    <md-input-container fxFlex>
+      <input [(ngModel)]="maxD" mdInput [mdDatepicker]="picker2" placeholder="Max Date"  [value]="maxD" >
+      <button mdSuffix [mdDatepickerToggle]="picker2"></button>
+    </md-input-container>
+    <md-datepicker  #picker2  (selectedChanged)="setMaxDate()"></md-datepicker>
+
+
+  </div>
+
+  <button md-raised-button color="primary" [disabled]="butdisabled" (click)="action()" md-button>
+    Submit Parameters
+  </button>
+
+
+
+</md-card>

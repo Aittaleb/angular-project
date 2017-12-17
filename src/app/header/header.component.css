@@ -1,0 +1,10 @@
+.example-sidenav-content {
+  display: flex;
+  margin-left: auto;
+  min-height: 60px;
+  background-color: #4285F4;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

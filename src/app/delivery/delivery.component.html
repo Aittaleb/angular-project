@@ -1,0 +1,79 @@
+<md-card>
+<md-card-title>Delivery </md-card-title>
+
+<md-card-content>
+<form class="delivery-form" [formGroup]="rForm" (ngSubmit)="addDelivery(rForm.value)">
+
+<div fxLayout="row">
+  <md-input-container fxFlex>
+   <input mdInput placeholder="Reference"  formControlName="reference" [value]="reference">
+   <md-icon mdSuffix>import_contacts</md-icon>
+   <md-error *ngIf="rForm.controls['reference'].hasError('required')">
+     Reference is <strong> required </strong>
+    </md-error>
+  </md-input-container>
+
+  <md-input-container color="warn" fxFlex  >
+  <input type="number" mdInput placeholder="Quantity"  formControlName="quantity" [value]="quantity">
+  <md-icon mdSuffix>edit</md-icon>
+  <md-error *ngIf="rForm.controls['quantity'].hasError('required')">
+     Quantity is <strong> required </strong>
+    </md-error>
+  </md-input-container>
+</div>
+
+<div fxLayout="row" >
+<md-input-container fxFlex >
+  <input mdInput [mdDatepicker]="picker" placeholder="Planned At" formControlName="plannedAt" [value]="plannedAt">
+   <md-error *ngIf="rForm.controls['plannedAt'].hasError('required')">
+     plan date is <strong> required </strong>
+    </md-error>
+  <button mdSuffix [mdDatepickerToggle]="picker"></button>
+</md-input-container>
+<md-datepicker #picker></md-datepicker>
+
+
+<md-input-container fxFlex >
+  <input mdInput [mdDatepicker]="picker1" placeholder="Delivered At" formControlName="deliveredAt" [value]="deliveredAt" >
+  <md-error *ngIf="rForm.controls['deliveredAt'].hasError('required')">
+     delivery date is <strong> required </strong>
+    </md-error>
+  <button mdSuffix [mdDatepickerToggle]="picker1"></button>
+</md-input-container>
+<md-datepicker #picker1></md-datepicker>
+
+</div>
+
+<div>
+  <md-input-container color="warn"   >
+  <input type="text" mdInput placeholder="Note"  formControlName="note" [value]="note" >
+  <md-icon mdSuffix>content_paste</md-icon>
+  </md-input-container>
+</div>
+
+<div>
+
+<md-select placeholder="State" formControlName="state">
+  <md-option *ngFor="let state of states" [value]="state.value">
+    {{ state.viewValue }}
+  </md-option>
+
+</md-select>
+ <md-error *ngIf="rForm.controls['state'].hasError('required')">
+     state is <strong> required </strong>
+    </md-error>
+
+</div>
+
+ <span> </span>
+  <span class="example-spacer"></span>
+<md-card-actions>
+
+  <button md-raised-button color="primary" type="submit" md-button>
+    Validate
+  </button>
+</md-card-actions>
+
+</form>
+</md-card-content>
+</md-card>

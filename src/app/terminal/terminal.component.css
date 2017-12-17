@@ -1,0 +1,27 @@
+md-card {
+  max-width: 70%;
+  margin: 2em auto;
+  padding: 2em ;
+
+}
+.example-form {
+  width: 500px;
+}
+
+.example-full-width {
+  width: 50%;
+}
+span{
+  max-width: 70%;
+}
+
+md-input-container{
+  width : 50% ;
+
+}
+md-card-actions{
+  text-align : center ;
+}
+*{
+  margin: 10px;
+}

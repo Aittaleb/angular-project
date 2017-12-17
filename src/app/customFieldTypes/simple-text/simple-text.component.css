@@ -1,0 +1,63 @@
+md-card {
+  max-width: 70%;
+  margin: 2em auto;
+  padding: 2em ;
+
+}
+.example-form {
+  width: 500px;
+}
+
+.example-full-width {
+  width: 50%;
+}
+span{
+    max-width: 70%;
+}
+md-card-actions{
+ text-align : center ;
+}
+  md-input-container   {
+      width : 50% ;
+      margin: 10px ;
+  }
+
+  md-select {
+
+      margin-top: 10px ;
+  }
+
+  md-slide-toggle{
+    margin: 10px ;
+  }
+
+  .radios {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  button:hover {
+    background-color: #cfd8dc;
+  }
+ 
+  .heroes .text {
+    position: relative;
+    top: -3px;
+
+  }
+  .example-radio-group {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+  
+  .example-selected-value {
+    margin: 15px 0;
+  } 

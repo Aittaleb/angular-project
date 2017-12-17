@@ -1,0 +1,82 @@
+<md-card>
+
+ <md-card-title>Customer </md-card-title>
+<md-card-content>
+<form class="customer-form" [formGroup]="rForm" (ngSubmit)="addCustomer(rForm.value)">
+
+<div fxLayout="row" >
+
+  <md-input-container fxFlex >
+   <input mdInput placeholder="Name"  formControlName="fullname" [value]="fullname">
+   <md-icon mdSuffix>person</md-icon>
+   <md-error *ngIf="rForm.controls['fullname'].hasError('required')">
+      Name is <strong>required</strong>
+    </md-error>
+      <md-error *ngIf="rForm.controls['fullname'].hasError('pattern')">
+      Pleas enter a <strong>Valid</strong> Name
+    </md-error>
+  </md-input-container>
+
+
+
+  <md-input-container color="warn"  fxFlex >
+  <input mdInput placeholder="Company Name"  formControlName="company_Name" [value]="company_Name">
+  <md-icon mdSuffix>domain</md-icon>
+  <md-error *ngIf="rForm.controls['company_Name'].hasError('required')">
+      Company name is <strong>required</strong>
+    </md-error>
+      <md-error *ngIf="rForm.controls['company_Name'].hasError('pattern')">
+      Pleas enter a <strong>Valid</strong> Company Name
+    </md-error>
+  </md-input-container>
+
+</div>
+
+
+<div fxLayout="row" >
+
+  <md-input-container class="example-full-width" fxFlex>
+    <input mdInput placeholder="Email" formControlName="email" [value]="email" >
+      <md-icon mdSuffix>email</md-icon>
+   <md-error *ngIf="rForm.controls['email'].hasError('pattern')">
+      Please enter a valid email address
+    </md-error>
+    <md-error *ngIf="rForm.controls['email'].hasError('required')">
+      Email is <strong>required</strong>
+    </md-error>
+  </md-input-container>
+
+
+<md-input-container class="example-full-width" color ="accent" fxFlex >
+    <span mdPrefix>+212 &nbsp;</span>
+    <input type="tel" mdInput placeholder="Telephone" formControlName="phone" [value]="phone">
+    <md-icon mdSuffix>phone</md-icon>
+    <md-error *ngIf="rForm.controls['phone'].hasError('pattern')">
+      Please enter a valid phone Number
+    </md-error>
+    <md-error *ngIf="rForm.controls['phone'].hasError('required')">
+      Phone number is <strong>required</strong>
+    </md-error>
+  </md-input-container>
+
+</div>
+
+<div fxLayout="row">
+
+  <md-input-container fxFlex>
+  <input mdInput placeholder="Address" type="text" formControlName="address" [value]="address">
+    <md-icon mdSuffix>home</md-icon>
+    <md-error *ngIf="rForm.controls['address'].hasError('required')">
+      Address is <strong>required</strong>
+    </md-error>
+  </md-input-container>
+</div>
+<md-card-actions>
+
+  <button md-raised-button color="primary" type="submit" md-button>
+    Validate
+  </button>
+</md-card-actions>
+</form>
+</md-card-content>
+</md-card>

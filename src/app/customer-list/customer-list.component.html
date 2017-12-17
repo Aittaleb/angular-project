@@ -1,0 +1,67 @@
+<md-card class="card-list-of-customers mat-elevation-z8">
+    <md-card-title> List of Customers </md-card-title>
+
+    <div class="example-header" >
+            <md-input-container floatPlaceholder="never">
+            <input mdInput #filter placeholder="Filter customers">
+            </md-input-container>
+  </div>
+    <md-table #table [dataSource]="dataSource" mdSort>
+
+      <ng-container cdkColumnDef="userId">
+    <md-header-cell *cdkHeaderCellDef> ID </md-header-cell>
+    <md-cell *cdkCellDef="let row"> {{row.id}} </md-cell>
+  </ng-container>
+
+        <ng-container cdkColumnDef="fullName">
+            <md-header-cell *cdkHeaderCellDef md-sort-header > Full Name </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.fullName}}</md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="companyName">
+            <md-header-cell *cdkHeaderCellDef md-sort-header > Company Name </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.companyName}}</md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="email">
+            <md-header-cell *cdkHeaderCellDef md-sort-header > Email </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.email}}</md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="phone">
+            <md-header-cell *cdkHeaderCellDef md-sort-header > Phone </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.phone}}</md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="adress">
+            <md-header-cell *cdkHeaderCellDef md-sort-header > Address </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.address}}</md-cell>
+        </ng-container>
+        <ng-container cdkColumnDef="Action">
+         <md-header-cell *cdkHeaderCellDef md-sort-header > Action </md-header-cell>
+         <md-cell  *cdkCellDef="let row">
+            <div style="display:auto">
+            <button md-mini-fab (click)="delete(row)"><md-icon>delete</md-icon></button>
+            <a md-mini-fab  [routerLink]="['/customer', row._id]"><md-icon>create</md-icon></a>
+          </div>
+         </md-cell>
+     </ng-container>
+        <md-header-row *cdkHeaderRowDef="displayedColumns"  ></md-header-row>
+
+        <md-row *cdkRowDef="let row; columns: displayedColumns;">
+        </md-row>
+    </md-table>
+
+            <div class="example-no-results"
+            [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+            No users found matching filter.
+        </div>
+
+        <md-paginator #paginator
+                        [length]="dataSource.filteredData.length"
+                        [pageIndex]="0"
+                        [pageSize]="25"
+                        [pageSizeOptions]="[5, 10, 25, 100]">
+        </md-paginator>
+
+</md-card>

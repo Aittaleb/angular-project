@@ -1,0 +1,330 @@
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav (window:resize)="$event.target.innerWidth<769?sidenav.close():sidenav.open()" mode="side" opened="false"
+    class="md-sidenav-opened md-sidenav-side">
+
+    <header>
+      <md-card md-theme="dark-grey" md-theme-watch>
+        <md-card-content>
+          <md-card-header>
+            <div md-card-avatar class="example-header-image"></div>
+            <md-card-title>Souhaila Merghad</md-card-title>
+            <md-card-subtitle>merghad@gmail.com</md-card-subtitle>
+          </md-card-header>
+        </md-card-content>
+      </md-card>
+    </header>
+    <md-list>
+      <md-list-item>
+        <button md-button [routerLink]="['']">
+            <md-icon md-list-icon>home</md-icon>
+            Dashboard
+         </button>
+      </md-list-item>
+      <md-divider></md-divider>
+
+
+      <md-list-item>
+        Customers
+      </md-list-item>
+
+      <md-list-item>
+        <button md-button [routerLink]="['customer']">
+          <md-icon>add</md-icon>
+          Add Customer
+          </button>
+      </md-list-item>
+
+      <md-list-item>
+        <button md-button [routerLink]="['customerList']">
+          <md-icon>list</md-icon>
+          List of Customers
+       </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Employees
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['employee']">
+         <md-icon>add</md-icon>
+         Add Employee
+      </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['employeelist']">
+         <md-icon>list</md-icon>
+         List of Employees
+      </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Invoices
+      </md-list-item>
+
+      <md-list-item>
+        <button md-button [routerLink]="['invoice']">
+        <md-icon>add</md-icon>
+        Add Invoice
+     </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['invoiceList']">
+        <md-icon>list</md-icon>
+        list of Invoices
+     </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Manufacturings
+      </md-list-item>
+
+      <md-list-item>
+        <button md-button [routerLink]="['manufacturing']">
+       <md-icon>add</md-icon>
+       Add Manufacturing
+    </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['manufacturinglist']">
+       <md-icon>list</md-icon>
+       list of Manufacturings
+    </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Stocks
+      </md-list-item>
+
+      <md-list-item>
+        <button md-button [routerLink]="['stock']">
+      <md-icon>add</md-icon>
+      Add Stock
+   </button>
+      </md-list-item>
+
+      <md-list-item>
+        <button md-button [routerLink]="['stockList']">
+      <md-icon>list</md-icon>
+      list of Stocks
+   </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Processes
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['process']">
+      <md-icon>add</md-icon>
+      Add Process
+   </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['processList']">
+      <md-icon>list</md-icon>
+      list of Processes
+   </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Terminal Categories
+      </md-list-item>
+      <md-list-item>
+        <button md-icon-button [routerLink]="['terminal-category']">
+      <md-icon>add</md-icon>
+      Add Terminal-Category
+   </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['terminalCategoryList']">
+      <md-icon>list</md-icon>
+      list of Terminal-Categories
+   </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Deliveries
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['delivery']">
+      <md-icon>add</md-icon>
+      Add Delivery
+   </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['deliveryList']">
+      <md-icon>list</md-icon>
+      list of Deliveries
+   </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+
+      <md-list-item>
+        Manufacture Lines
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['manufactureLine']">
+      <md-icon>add</md-icon>
+      Add Manufacture Line
+   </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['manufacturelineList']">
+      <md-icon>list</md-icon>
+      list of Manufacture Lines
+   </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Products
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['product']">
+      <md-icon>add</md-icon>
+      Add Product
+   </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['productList']">
+      <md-icon>list</md-icon>
+      list of Products
+   </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Manufacture line types
+      </md-list-item>
+
+      <md-list-item>
+        <button md-button [routerLink]="['manufacturelinetype']">
+      <md-icon>add</md-icon>
+      Add Manufacture Line Type
+   </button>
+      </md-list-item>
+
+      <md-list-item>
+        <button md-button [routerLink]="['manufactureLineTypeList']">
+      <md-icon>list</md-icon>
+      list of Manufacture Line Types
+   </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Projects
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['project']">
+      <md-icon>add</md-icon>
+      Add Project
+   </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['projectList']">
+      <md-icon>list</md-icon>
+      list of Projects
+   </button>
+      </md-list-item>
+
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Raw Materials
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['rawmaterial']">
+      <md-icon>add</md-icon>
+      Add Raw Material
+   </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['rawMaterialList']">
+      <md-icon>list</md-icon>
+      list of Raw Materials
+   </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Terminal
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['terminal']">
+                    <md-icon>add</md-icon>
+                    Add Terminal
+                 </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['terminalList']">
+                    <md-icon>list</md-icon>
+                    list of Terminals
+                 </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Variant
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['variant']">
+               <md-icon>add</md-icon>
+               Add Variant
+            </button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['variantList']">
+               <md-icon>list</md-icon>
+               List of Variants
+            </button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Custom Fields
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['customFields']">
+               <md-icon>add</md-icon>
+               Add Custom Field
+            </button>
+      </md-list-item>
+      <md-divider></md-divider>
+
+      <md-list-item>
+        Product Models
+      </md-list-item>
+      <md-list-item>
+        <button md-button [routerLink]="['productModel']">
+               <md-icon>add</md-icon>
+               Add product model
+            </button>
+      </md-list-item>
+    </md-list>
+
+
+  </md-sidenav>
+</md-sidenav-container>

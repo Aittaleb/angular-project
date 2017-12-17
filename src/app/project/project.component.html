@@ -1,0 +1,122 @@
+<md-card>
+  <md-card-title> Project </md-card-title>
+  <form class="project-form" [formGroup]="rForm" (ngSubmit)="submitProject(rForm.value)">
+
+    <div fxLayout="row">
+
+      <md-input-container fxFlex>
+        <input mdInput placeholder="Name" formControlName="name" [value]="name">
+        <md-icon mdSuffix>person</md-icon>
+        <md-error *ngIf="rForm.controls['name'].hasError('required')">
+          Name is<strong>required</strong>
+        </md-error>
+        <md-error *ngIf="rForm.controls['name'].hasError('pattern')">
+          please enter a valid <strong>Name</strong>
+        </md-error>
+
+      </md-input-container>
+
+      <md-input-container fxFlex >
+        <input mdInput placeholder="Command Reference" formControlName="commandReference" [value]="commandReference">
+        <md-icon mdSuffix>import_contacts</md-icon>
+        <md-error *ngIf="rForm.controls['commandReference'].hasError('required')">
+          Command reference is<strong>required</strong>
+        </md-error>
+      </md-input-container>
+
+    </div>
+
+
+    <div fxLayout="row" >
+      <md-input-container fxFlex>
+        <input mdInput [mdDatepicker]="picker1" placeholder="plannedAt" formControlName="plannedAt" [value]="plannedAt">
+        <button mdSuffix [mdDatepickerToggle]="picker1"></button>
+        <md-error *ngIf="rForm.controls['plannedAt'].hasError('required')">
+          plan date is<strong>required</strong>
+        </md-error>
+      </md-input-container>
+      <md-datepicker #picker1></md-datepicker>
+
+      <md-input-container fxFlex >
+        <input mdInput [mdDatepicker]="picker2" placeholder="Delivered at" formControlName="deliveredAt" [value]="deliveredAt">
+        <button mdSuffix [mdDatepickerToggle]="picker2"></button>
+        <md-error *ngIf="rForm.controls['deliveredAt'].hasError('required')">
+          delivery date is<strong>required</strong>
+        </md-error>
+      </md-input-container>
+      <md-datepicker #picker2></md-datepicker>
+
+    </div>
+
+    <div fxLayout="row" >
+      <md-input-container fxFlex>
+        <input mdInput [mdDatepicker]="picker3" placeholder="Client Planned at" formControlName="clientPlannedAt" [value]="clientPlannedAt">
+        <button mdSuffix [mdDatepickerToggle]="picker3"></button>
+        <md-error *ngIf="rForm.controls['clientPlannedAt'].hasError('required')">
+          client plan date is<strong>required</strong>
+        </md-error>
+      </md-input-container>
+      <md-datepicker #picker3></md-datepicker>
+
+      <md-input-container fxFlex >
+        <input mdInput [mdDatepicker]="picker4" placeholder="Client Delivered at" formControlName="clientDeliveredAt" [value]="clientPlannedAt">
+        <button mdSuffix [mdDatepickerToggle]="picker4"></button>
+        <md-error *ngIf="rForm.controls['clientDeliveredAt'].hasError('required')">
+          client delivery date is<strong>required</strong>
+        </md-error>
+      </md-input-container>
+      <md-datepicker #picker4></md-datepicker>
+
+    </div>
+
+    <div fxLayout="row">
+      <md-input-container class="example-full-width" color ="accent" fxFlex >
+        <input type="text" mdInput placeholder="Note" formControlName="note" [value]="note">
+        <md-icon mdSuffix>content_paste</md-icon>
+      </md-input-container>
+
+      <md-select placeholder="State" fxFlex formControlName="state" >
+        <md-option *ngFor="let state of states" [value]="state.value">
+          {{ state.viewValue }}
+        </md-option>
+      </md-select>
+    </div>
+
+    <div fxLayout="row">
+
+      <md-input-container class="example-full-width" color ="accent" fxFlex >
+        <input type="number" mdInput placeholder="Estimated Budget" formControlName="estimeBudget" [value]="estimeBudget">
+        <md-icon mdSuffix>attach_money</md-icon>
+        <md-error *ngIf="rForm.controls['estimeBudget'].hasError('required')">
+          estimated budget is<strong>required</strong>
+        </md-error>
+      </md-input-container>
+
+      <md-input-container class="example-full-width" color ="accent" fxFlex >
+        <input type="number" mdInput placeholder="Client Budget" formControlName="clientBudget" [value]="clientBudget">
+        <md-icon mdSuffix>attach_money</md-icon>
+        <md-error *ngIf="rForm.controls['clientBudget'].hasError('required')">
+          client budget is<strong>required</strong>
+        </md-error>
+      </md-input-container>
+
+    </div>
+
+    <div>
+      <md-input-container class="example-full-width" color ="accent" >
+        <input type="number" mdInput placeholder=" Budget" formControlName="budget" [value]="budget">
+        <md-icon mdSuffix>attach_money</md-icon>
+        <md-error *ngIf="rForm.controls['budget'].hasError('required')">
+          budget is<strong>required</strong>
+        </md-error>
+      </md-input-container>
+    </div>
+    <md-card-actions>
+
+      <button md-raised-button color="primary" type="submit" md-button>
+        Validate
+      </button>
+    </md-card-actions>
+  </form>
+
+</md-card>
